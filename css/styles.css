@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.info-box {
+    width: 312px;
+    min-height: 321px;
+    margin-left: auto;
+    margin-right: auto;
+    border:1px solid rgb(242, 242, 242);
+    box-shadow: 4px 3px 3px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    position: relative;
+}
+.prod-img {
+    width: 312px;
+    height: 200px;
+}
+.header, .show-hide-details, .find {
+    color: #ee7600;
+}
+.note {
+    display: none;
+    color: #b2b2b2;
+    margin: 10px 0 0 0 ;
+}
+.note, .show-hide-details, .descr {
+    font-size: 10px;
+}
+.prev, .next, .find {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 10px;
+    height: 26px;
+    line-height: 26px;
+    border: none;
+    padding: 0;
+    outline: none;
+    letter-spacing: 0.5px !important;
+    position: absolute;
+    bottom: 10px;
+}
+.next, .prev {
+    width:68px;
+    color: #a8a8a8;
+}
+.next {
+    background: url(../img/btn_ic_gray_right.png) no-repeat 52px, url(../img/button_bg_white_right.png) no-repeat;
+    text-align: left;
+    padding-left: 10px;
+    margin-left: 80px;
+}
+.prev {
+    background: url(../img/btn_ic_gray_left.png) no-repeat 4px, url(../img/button_bg_white_left.png) no-repeat;
+    margin-left: 10px;
+    text-align: right;
+    padding-right: 10px;
+}
+.find {
+    width:108px;
+    margin-left: 194px;
+    background: url(../img/button_bg_white_right-1.png) no-repeat;
+    text-align: left;
+    padding-left: 8px;
+}
+.header {
+    margin: 5px 0 3px 0;
+}
+.descr {
+    margin: 0 0 3px 0;
+    letter-spacing: 0.5px;
+}
+.excl-image {
+    margin: 0 12px 15px 12px;
+}
+.descr {
+    height:20px;
+    overflow: hidden;
+}
+.next:hover, .prev:hover, .find:hover {
+    color: #fff;
+}
+.next:hover {
+    background: url(../img/btn_ic_brn_right.png) no-repeat 52px, url(../img/button_bg_orange_right.png) no-repeat;
+}
+.prev:hover {
+    background: url(../img/btn_ic_brn_left.png) no-repeat 4px, url(../img/button_bg_orange_left.png) no-repeat;
+}
+.find:hover {
+    background: url(../img/button_bg_orange_right-1.png) no-repeat;
+}
+.show-hide-details:hover {
+    color: #000;
+}
+.show-hide-details {
+    display: block;
+}

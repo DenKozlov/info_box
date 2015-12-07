@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info box</title>
+    <script type="text/template" id="product-template">
+        <img src=img/<%= img %> class="prod-img">
+        <div class="excl-image">
+            <h3 class="header"><%= title %></h3>
+                <div class="descr"><%= description %></div>
+                <div class="note"><%= note %></div>
+                <a href="#" class="show-hide-details">show details</a>
+        </div>
+    </script>
+    <script type="text/template" id="info-box-template">
+            <button class="prev">Prev</button>
+            <button class="next">Next</button>
+            <button class="find">Find A Store</button>
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="libs/jquery-2.1.4.min.js"></script>
+    <script src="libs/underscore.js"></script>
+    <script src="libs/backbone.js"></script>
+    <script src="init-app.js"></script>
+    <script src="js/models/product.js"></script>
+    <script src="js/collections/infoBox.js"></script>
+    <script src="js/views/productView.js"></script>
+    <script src="js/views/infoBoxView.js"></script>
+    <script src="run.js"></script>
+</head>
+<body>
+</body>
+</html>
