@@ -12,26 +12,39 @@ define(['jquery', 'underscore', 'backbone', 'text!../templates/product.html'], f
         },
         showHideDetails: function () {
             var linkText = this.$('.show-hide-details').text(),
-                $descr = this.$('.descr'),
-                autoHeight = $descr.css('height', 'auto').height();
+                $exclIm = this.$('.excl-image');
 
             if(linkText === 'show details') {
-                this.show($descr, autoHeight);
+                this.show($exclIm);
             } else {
-                this.hide($descr, autoHeight);
+                this.hide($exclIm);
             }
         },
-        show: function ($descr, autoHeight) {
-            this.$('.prod-img').slideUp();
-            $descr.height('20px').animate({height: autoHeight}, 'slow');
-            $('.note').slideDown('slow');
-            this.$('.show-hide-details').text('hide details');
+        show: function ($exclIm) {
+            this.$('.prod-img').animate({opacity: 0}, 1000);
+            $exclIm.css('position', 'relative').animate({top: -190}, 1100).promise()
+            .pipe(function () {
+                return $(".descr").animate({height: $(".descr").get(0).scrollHeight} );
+            }).pipe(function () {
+                return $('.note').slideDown();
+            }).pipe(function () {
+               return $('.show-hide-details').text('hide details');
+            });
         },
-        hide: function ($descr, autoHeight) {
-            $('.note').slideUp('slow');
-            $descr.height(autoHeight).animate({height: '20px'}, 'slow');
-            this.$('.show-hide-details').text('show details');
-            this.$('.prod-img').slideDown('slow');
+        hide: function ($exclIm) {
+            $('.note').slideUp().promise()
+                .pipe(function () {
+                   return $(".descr").animate({height: '2.4em'})
+                })
+                .pipe(function () {
+                    return $exclIm.animate({top: 0}, 1100)
+                })
+                .pipe(function () {
+                    $('.prod-img').animate({opacity: 1}, 1000);
+                })
+            .pipe(function () {
+                return $('.show-hide-details').text('show details');
+            });
         }
 
     })

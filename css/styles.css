@@ -80,7 +80,7 @@ body {
     margin: 0 12px 15px 12px;
 }
 .descr {
-    height:20px;
+    height: 2.4em;
     overflow: hidden;
 }
 .next:hover, .prev:hover, .find:hover {
@@ -102,10 +102,11 @@ body {
     color: #000;
 }
 .show-hide-details {
-    display: flex;
+    display: inline-block;
 }
 span {
     display: inline-block;
+    position: relative;
 }
 .left-arrow:hover {
     background-position: -959px -341px;

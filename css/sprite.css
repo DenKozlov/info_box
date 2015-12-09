@@ -21,7 +21,8 @@ Icon classes can be used entirely standalone. They are named after their origina
   width: 12px;
   height: 10px;
   margin-bottom: -2px;
-  margin-right: 18px;
+  left: -15px;
+
 }
 .icon-btn_ic_brn_right {
   background-image: url(../img/sprite.png);
@@ -29,7 +30,7 @@ Icon classes can be used entirely standalone. They are named after their origina
   width: 12px;
   height: 10px;
   margin-bottom: -2px;
-  margin-left: 13px;
+  right: -10px;
 }
 .icon-btn_ic_gray_left {
   background-image: url(../img/sprite.png);
@@ -37,7 +38,7 @@ Icon classes can be used entirely standalone. They are named after their origina
   width: 12px;
   height: 10px;
   margin-bottom: -2px;
-  margin-right: 18px;
+  left: -13px;
 }
 .icon-btn_ic_gray_right {
   background-image: url(../img/sprite.png);
@@ -45,7 +46,7 @@ Icon classes can be used entirely standalone. They are named after their origina
   width: 12px;
   height: 10px;
   margin-bottom: -2px;
-  margin-left: 13px;
+  right: -10px;
 }
 .icon-button_bg_orange_left {
   background-image: url(../img/sprite.png);
