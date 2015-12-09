@@ -1,12 +1,12 @@
-(function (app) {
-    app.views.ProductView = Backbone.View.extend({
+define(['jquery', 'underscore', 'backbone', 'text!../templates/product.html'], function ($, _, Backbone, tmpl) {
+
+    return Backbone.View.extend({
         className: 'product',
-        template: app.templates.getTemplateByID('product-template'),
         events: {
             'click .show-hide-details': 'showHideDetails'
         },
         render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
+            this.$el.html(_.template(tmpl)(this.model.toJSON()));
 
             return this;
         },
@@ -35,4 +35,4 @@
         }
 
     })
-})(application);
+});

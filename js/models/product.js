@@ -1,5 +1,4 @@
-(function (app) {
-    app.models.Product = Backbone.Model.extend({
+define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
 
-    })
-})(application);
+    return Backbone.Model;
+});
