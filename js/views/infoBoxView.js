@@ -8,11 +8,14 @@ define(['jquery', 'underscore', 'backbone', 'infobox', 'productview', 'text!../t
         },
         initialize: function () {
             this.collection = new InfoBox();
-            this.listenTo(this.collection, "reset", this.onReset);
+            this.listenTo(this.collection, "reset", this.onReset)
+                .listenTo(Backbone, 'changeProduct', this.onProdChange);
         },
         onReset: function () {
+            var hash = '/' + location.hash.slice(1);
             this.$el.html(_.template(tmpl));
-            this.renderProduct(this.collection.first());
+            this.onProdChange(hash);
+            /*this.renderProduct(this.collection.first());*/
         },
         getAnotherProduct: function (event) {
             var currProdInd = this.collection.indexOf(this.productView.model),
@@ -27,8 +30,18 @@ define(['jquery', 'underscore', 'backbone', 'infobox', 'productview', 'text!../t
                 renderProd = true;
             }
             if(renderProd) {
-                this.renderProduct(this.collection.at(currProdInd));
+                Backbone.trigger('get-url-path', this.collection.at(currProdInd).get('productUrl'));
+                /*this.renderProduct(this.collection.at(currProdInd));*/
             }
+        },
+        onProdChange: function (hash) {
+            var modelToRend;
+            this.collection.each(function (model) {
+                if(model.get('productUrl') === hash) {
+                    modelToRend = model;
+                }
+            });
+            this.renderProduct(this.collection.at(this.collection.indexOf(modelToRend)));
         },
         renderProduct: function (model) {
             var productImg = model.get('img'),

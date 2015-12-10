@@ -23,6 +23,8 @@ body {
     display: none;
     color: #b2b2b2;
     margin: 10px 0 0 0 ;
+    max-height: 15em;
+    overflow: scroll;
 }
 .note, .show-hide-details, .descr {
     font-size: 10px;
@@ -113,4 +115,7 @@ span {
 }
 .right-arrow:hover {
     background-position: -959px -383px;
+}
+.in-div {
+    margin: 0;
 }
