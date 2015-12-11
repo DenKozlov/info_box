@@ -11,41 +11,45 @@ define(['jquery', 'underscore', 'backbone', 'text!../templates/product.html'], f
             return this;
         },
         showHideDetails: function () {
-            var linkText = this.$('.show-hide-details').text(),
-                $exclIm = this.$('.excl-image');
+            this.cacheElements();
+            var linkText = this.$link.text();
 
-            if(linkText === 'show details') {
-                this.show($exclIm);
-            } else {
-                this.hide($exclIm);
-            }
+            (linkText === 'show details') ? this.show() : this.hide();
         },
-        show: function ($exclIm) {
-            this.$('.prod-img').animate({opacity: 0}, 1000);
-            $exclIm.css('position', 'relative').animate({top: -190}, 1100).promise()
+        show: function () {
+            this.$prodImg.animate({opacity: 0}, 1000);
+            this.$exclIm.css('position', 'relative').animate({top: -190}, 1100).promise()
             .pipe(function () {
-                return $(".descr").animate({height: $(".descr").get(0).scrollHeight} );
-            }).pipe(function () {
-                return $('.note').slideDown();
-            }).pipe(function () {
-               return $('.show-hide-details').text('hide details');
-            });
+                return this.$descr.animate({ height: this.$descr.scrollHeight });
+            }.bind(this))
+            .pipe(function () {
+                return this.$note.slideDown();
+            }.bind(this))
+            .pipe(function () {
+               return this.$link.text('hide details');
+            }.bind(this));
         },
-        hide: function ($exclIm) {
-            $('.note').slideUp().promise()
+        hide: function () {
+            this.$note.slideUp().promise()
                 .pipe(function () {
-                   return $(".descr").animate({height: '2.4em'})
-                })
+                   return this.$descr.animate({ height: '2.4em' })
+                }.bind(this))
                 .pipe(function () {
-                    return $exclIm.animate({top: 0}, 1100)
-                })
+                    return this.$exclIm.animate({top: 0}, 1100)
+                }.bind(this))
                 .pipe(function () {
-                    $('.prod-img').animate({opacity: 1}, 1000);
-                })
-            .pipe(function () {
-                return $('.show-hide-details').text('show details');
-            });
+                    this.$prodImg.animate({ opacity: 1 }, 1000);
+                }.bind(this))
+                .pipe(function () {
+                return this.$link.text('show details');
+                }.bind(this));
+        },
+        cacheElements: function () {
+            this.$note = $('.note');
+            this.$descr = $('.descr');
+            this.$prodImg = $('.prod-img');
+            this.$exclIm = $('.excl-image');
+            this.$link = $('.show-hide-details');
         }
-
     })
 });

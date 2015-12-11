@@ -15,7 +15,6 @@ define(['jquery', 'underscore', 'backbone', 'infobox', 'productview', 'text!../t
             var hash = '/' + location.hash.slice(1);
             this.$el.html(_.template(tmpl));
             this.onProdChange(hash);
-            /*this.renderProduct(this.collection.first());*/
         },
         getAnotherProduct: function (event) {
             var currProdInd = this.collection.indexOf(this.productView.model),
@@ -31,17 +30,10 @@ define(['jquery', 'underscore', 'backbone', 'infobox', 'productview', 'text!../t
             }
             if(renderProd) {
                 Backbone.trigger('get-url-path', this.collection.at(currProdInd).get('productUrl'));
-                /*this.renderProduct(this.collection.at(currProdInd));*/
             }
         },
         onProdChange: function (hash) {
-            var modelToRend;
-            this.collection.each(function (model) {
-                if(model.get('productUrl') === hash) {
-                    modelToRend = model;
-                }
-            });
-            this.renderProduct(this.collection.at(this.collection.indexOf(modelToRend)));
+            this.renderProduct(this.collection.find({productUrl: hash}));
         },
         renderProduct: function (model) {
             var productImg = model.get('img'),

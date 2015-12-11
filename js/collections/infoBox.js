@@ -4,7 +4,7 @@ define(['jquery', 'underscore', 'backbone', 'product'], function ($, _, Backbone
         model: Product,
         url: 'json/info_box.json',
         initialize: function () {
-            this.fetch({reset:true});
+            this.fetch({ reset:true });
         }
     })
 });
